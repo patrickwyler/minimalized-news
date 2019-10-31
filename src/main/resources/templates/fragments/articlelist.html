@@ -1,0 +1,18 @@
+<div class="container">
+    <div th:if="${articles.empty}" class="text-center text-white"> No result found :(</div>
+    <div class="card-columns">
+        <div class="card p-3 bg-light mb-3" th:each="article : ${articles}">
+            <div class="card-body">
+                <h5 class="card-title" th:text="${article.title}">Card title</h5>
+                <p class="card-text" th:text="${article.text}">Text</p>
+                <a href="#" th:href="${article.sourceUrl}" class="card-link" th:text="${article.sourceName}">Source</a>
+                <p class="card-text">
+                    <small class="text-muted" th:text="${#dates.format(article.creationDate, 'dd.MM.yyyy HH:mm')}"></small>
+                </p>
+                <th:block th:each="tag : ${article.tags}">
+                    <a href="#" class="badge badge-dark" th:text="${tag.name}" th:href="'/search?tag='+${tag.name}">Name</a>
+                </th:block>
+            </div>
+        </div>
+    </div>
+</div>

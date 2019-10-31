@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <title>All tags</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Patrick Wyler">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png">
+</head>
+<body>
+<div th:insert="fragments/navigation.html"></div>
+<br/>
+<div class="container">
+    <h1> Tag </h1>
+    <br/>
+    <div class="col-md-6">
+        <a class="btn btn-success" href="#" th:href="@{/tags/create}"> Create new tag</a>
+    </div>
+    <br/>
+    <div class="row">
+        <div>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col"> ID</th>
+                    <th scope="col"> Name</th>
+                    <th scope="col"> Creation date</th>
+                    <th scope="col"> Last modified date</th>
+                    <th scope="col"> Options</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr scope="row" th:if="${tags.empty}">
+                    <td colspan="4"> No tag available</td>
+                </tr>
+                <tr scope="row" th:each="tag : ${tags}">
+                    <td><span th:text="${tag.id}"> ID </span></td>
+                    <td><span th:text="${tag.name}"> Name </span></td>
+                    <td><span th:text="${#dates.format(tag.creationDate, 'dd.MM.yyyy HH:mm:ss')}"> Creation date </span></td>
+                    <td><span th:text="${#dates.format(tag.lastModifiedDate, 'dd.MM.yyyy HH:mm:ss')}"> Last modified date </span></td>
+                    <td>
+                        <a class="btn btn-light" href="#" th:href="@{'/tags/edit/' + ${tag.id}}"> Edit </a>
+                        <a class="btn btn-danger" href="#" th:href="@{'/tags/delete/' + ${tag.id}}"> Delete </a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div th:insert="fragments/scripts.html"></div>
+
+</body>
+</html>

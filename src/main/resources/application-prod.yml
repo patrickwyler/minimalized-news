@@ -1,0 +1,12 @@
+spring:
+    datasource:
+      url: jdbc:mysql://host:port/schema?serverTimezone=UTC#
+      username: database-user
+      password: database-password
+    jpa:
+      hibernate.ddl-auto: update
+      generate-ddl: true
+      show-sql: false
+custom:
+  testdata:
+    enabled: false
