@@ -23,4 +23,4 @@ Author: Patrick Wyler
 ![](/demo/gui-6.png)  
 
 ## Responsive design
-![](/demo/gui-0.png)  
+<img src="/demo/gui-0.png" width="50%">
