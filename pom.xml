@@ -35,7 +35,7 @@
         <apache-commons-lang.version>3.8.1</apache-commons-lang.version>
         <mapstruct.version>1.2.0.Final</mapstruct.version>
         <lombok.version>1.18.2</lombok.version>
-        <apache-commons-collections4.version>4.0</apache-commons-collections4.version>
+        <apache-commons-collections4.version>4.1</apache-commons-collections4.version>
         <guava.version>27.0.1-jre</guava.version>
         <mockserver.version>3.10.8</mockserver.version>
     </properties>
